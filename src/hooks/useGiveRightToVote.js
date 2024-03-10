@@ -54,3 +54,19 @@ const useGiveRightToVote = (address) => {
 };
 
 export default useGiveRightToVote;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

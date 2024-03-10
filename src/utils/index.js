@@ -1,4 +1,19 @@
-import { SUPPORTED_CHAIN } from "../connection";
+// import { SUPPORTED_CHAIN } from "../connection";
 
-export const isSupportedChain = (chainId) =>
-    Number(chainId) === SUPPORTED_CHAIN;
+// export const isSupportedChain = (chainId) =>
+//     Number(chainId) === SUPPORTED_CHAIN;
+
+    import { SUPPORTED_CHAIN } from "../connection";
+    import { getProposalsContract } from "../constants/contracts";
+    import { getProvider } from "../constants/providers";
+    
+    export const isSupportedChain = (chainId) =>
+        Number(chainId) === SUPPORTED_CHAIN;
+    
+    export const getReadWriteBallotContract = async (provider) => {
+         const readWriteProvider = getProvider(provider);
+    
+         const signer = await readWriteProvider.getSigner();
+    
+        return getProposalsContract(signer);
+    };

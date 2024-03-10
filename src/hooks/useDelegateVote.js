@@ -16,10 +16,10 @@ const useDelegateVote = (address) => {
   return useCallback(async () => {
     if (!isSupportedChain(chainId)) return toast.error("Wrong network");
     if (!isAddress(address)) return toast.error("invalid address");
-    const readWriteProvider = getProvider(walletProvider);
-    const signer = await readWriteProvider.getSigner();
+    // const readWriteProvider = getProvider(walletProvider);
+    // const signer = await readWriteProvider.getSigner();
 
-    const contract = getProposalsContract(signer);
+    // const contract = getProposalsContract(signer);
 
     try {
 
