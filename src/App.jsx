@@ -8,6 +8,7 @@ import DelegateVote from "./component/DelegateVote";
 import useProposals from "./hooks/useProposals";
 import useHandleVote from "./hooks/useHandleVote";
 import useDelegateVote from "./hooks/useDelegateVote";
+import useNumberOfVoters from "./hooks/useNumberOfVoters";
 
 configureWeb3Modal();
 
@@ -17,19 +18,23 @@ function App() {
 
     const [to, setTo] = useState("");
   const handleDelegateVote = useDelegateVote(to);
+
+  const handleNumberOfVotes = useNumberOfVoters();
   
 
   return (
     <Container>
       <Header />
       <main className="mt-6">
-        <Box mb="4">
+      <span className="mt-0">Eligible Voters:{handleNumberOfVotes}</span>
           <DelegateVote delegateAddress ={to}
                         setDelegateAddress ={setTo}
                         handleDelegateVote={handleDelegateVote}
                   
                   />
-        </Box>
+
+                  
+     
 
         <Flex wrap={"wrap"} gap={"6"}>
           {loading ? (
